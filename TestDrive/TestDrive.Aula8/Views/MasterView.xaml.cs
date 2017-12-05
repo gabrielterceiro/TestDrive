@@ -1,6 +1,9 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Collections.ObjectModel;
+using System.ComponentModel;
 using System.Linq;
+using System.Runtime.CompilerServices;
 using System.Text;
 using System.Threading.Tasks;
 
@@ -10,9 +13,11 @@ using Xamarin.Forms.Xaml;
 namespace TestDrive.Views
 {
     [XamlCompilation(XamlCompilationOptions.Compile)]
-    public partial class MasterDetailViewDetail : ContentPage
+    public partial class MasterView : ContentPage
     {
-        public MasterDetailViewDetail()
+        public ListView ListView;
+
+        public MasterView()
         {
             InitializeComponent();
         }
