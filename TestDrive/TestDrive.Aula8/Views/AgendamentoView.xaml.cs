@@ -18,6 +18,7 @@ namespace TestDrive.Views
             InitializeComponent();
             this.ViewModel = new AgendamentoViewModel(veiculo);
             this.BindingContext = this.ViewModel;
+            //Teste
         }
 
         protected override void OnAppearing()
