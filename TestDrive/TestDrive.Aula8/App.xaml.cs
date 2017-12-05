@@ -15,13 +15,12 @@ namespace TestDrive
 
             MainPage = new LoginView();
         }
-
-        protected override void OnStart()
+                protected override void OnStart()
         {
-            MessagingCenter.Subscribe<Usuario>(this, "SucessoLogin",
-                (usuario) =>
+            MessagingCenter.Subscribe<Usuario>(this, "SucessoLogin", 
+                (msg) =>
                 {
-                    MainPage = new MasterDetailView();
+                    this.MainPage = new NavigationPage(new ListagemView());
                 });
         }
 
