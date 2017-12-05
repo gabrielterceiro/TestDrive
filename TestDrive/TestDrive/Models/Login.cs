@@ -11,10 +11,12 @@ namespace TestDrive.Models
         public string email { get; private set; }
         public string senha { get; private set; }
 
+        #region Construtor
         public Login(string email, string senha)
         {
             this.email = email;
             this.senha = senha;
-        }
+        } 
+        #endregion
     }
 }

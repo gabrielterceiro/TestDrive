@@ -12,6 +12,7 @@ namespace TestDrive.ViewModels
 {
     public class LoginViewModel
     {
+        #region Propriedades públicas
         private string usuario;
         public string Usuario
         {
@@ -32,7 +33,8 @@ namespace TestDrive.ViewModels
                 senha = value;
                 ((Command)EntrarCommand).ChangeCanExecute();
             }
-        }
+        } 
+        #endregion
 
         public ICommand EntrarCommand { get; private set; }
 

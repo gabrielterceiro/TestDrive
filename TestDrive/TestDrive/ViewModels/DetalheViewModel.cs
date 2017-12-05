@@ -15,8 +15,8 @@ namespace TestDrive.ViewModels
 {
     public class DetalheViewModel : BaseViewModel
     {
+        #region Propriedades Públicas
         public Veiculo Veiculo { get; set; }
-
         public string TextoFreioABS
         {
             get
@@ -24,7 +24,6 @@ namespace TestDrive.ViewModels
                 return string.Format("Freio ABS - R$ {0}", Veiculo.FREIO_ABS);
             }
         }
-
         public string TextoArCondicionado
         {
             get
@@ -32,7 +31,6 @@ namespace TestDrive.ViewModels
                 return string.Format("Ar Condicionado - R$ {0}", Veiculo.AR_CONDICIONADO);
             }
         }
-
         public string TextoMP3Player
         {
             get
@@ -40,7 +38,6 @@ namespace TestDrive.ViewModels
                 return string.Format("MP3 Player - R$ {0}", Veiculo.MP3_PLAYER);
             }
         }
-
         public bool TemFreioABS
         {
             get
@@ -54,7 +51,6 @@ namespace TestDrive.ViewModels
                 OnPropertyChanged(nameof(ValorTotal));
             }
         }
-
         public bool TemArCondicionado
         {
             get
@@ -68,7 +64,6 @@ namespace TestDrive.ViewModels
                 OnPropertyChanged(nameof(ValorTotal));
             }
         }
-
         public bool TemMP3Player
         {
             get
@@ -82,7 +77,6 @@ namespace TestDrive.ViewModels
                 OnPropertyChanged(nameof(ValorTotal));
             }
         }
-
         public string ValorTotal
         {
             get
@@ -90,7 +84,9 @@ namespace TestDrive.ViewModels
                 return Veiculo.PrecoTotalFormatado;
             }
         }
+        #endregion
 
+        #region Construtor
         public DetalheViewModel(Veiculo veiculo)
         {
             this.Veiculo = veiculo;
@@ -98,7 +94,8 @@ namespace TestDrive.ViewModels
             {
                 MessagingCenter.Send(veiculo, "Proximo");
             });
-        }
+        } 
+        #endregion
 
         public ICommand ProximoCommand { get; set; }
     }

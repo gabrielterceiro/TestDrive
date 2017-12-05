@@ -9,11 +9,13 @@ namespace TestDrive
 {
     public class Usuario
     {
+        #region Propriedades Públicas
         public int id { get; set; }
         public string nome { get; set; }
         public string dataNascimento { get; set; }
         public string telefone { get; set; }
-        public string email { get; set; }
+        public string email { get; set; } 
+        #endregion
     }
 
     public class LoginResult
