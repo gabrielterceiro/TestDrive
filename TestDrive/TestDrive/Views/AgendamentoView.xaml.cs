@@ -13,17 +13,20 @@ namespace TestDrive.Views
     {
         public AgendamentoViewModel ViewModel { get; set; }
 
+        #region Construtor
         public AgendamentoView(Veiculo veiculo)
         {
             InitializeComponent();
             this.ViewModel = new AgendamentoViewModel(veiculo);
             this.BindingContext = this.ViewModel;
-            //Teste
         }
+        #endregion
 
+        #region OnAppearing
         protected override void OnAppearing()
         {
             base.OnAppearing();
+            //Ao abrir a tela, checa mensagens
             MessagingCenter.Subscribe<Agendamento>(this, "Agendamento",
                 async (msg) =>
                 {
@@ -49,7 +52,9 @@ namespace TestDrive.Views
                     DisplayAlert("Agendamento", "Falha ao agendar o test drive! Verifique os dados e tente novamente mais tarde!", "ok");
                 });
         }
+        #endregion
 
+        #region OnDisappearing
         protected override void OnDisappearing()
         {
             base.OnDisappearing();
@@ -57,6 +62,7 @@ namespace TestDrive.Views
 
             MessagingCenter.Unsubscribe<Agendamento>(this, "SucessoAgendamento");
             MessagingCenter.Unsubscribe<ArgumentException>(this, "FalhaAgendamento");
-        }
+        } 
+        #endregion
     }
 }

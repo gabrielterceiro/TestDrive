@@ -38,8 +38,10 @@ namespace TestDrive.ViewModels
 
         public ICommand EntrarCommand { get; private set; }
 
+        #region Construtor
         public LoginViewModel()
         {
+            //Command parar entrar, verifica se os valores foram preenchidos
             EntrarCommand = new Command(async () =>
             {
                 var loginService = new LoginService();
@@ -49,6 +51,7 @@ namespace TestDrive.ViewModels
                 return !string.IsNullOrEmpty(usuario)
                         && !string.IsNullOrEmpty(senha);
             });
-        }
+        } 
+        #endregion
     }
 }
