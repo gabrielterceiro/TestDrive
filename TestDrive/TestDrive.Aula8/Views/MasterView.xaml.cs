@@ -12,7 +12,6 @@ using Xamarin.Forms.Xaml;
 
 namespace TestDrive.Views
 {
-    [XamlCompilation(XamlCompilationOptions.Compile)]
     public partial class MasterView : ContentPage
     {
         public ListView ListView;
