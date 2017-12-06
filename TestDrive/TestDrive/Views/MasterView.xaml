@@ -1,8 +1,14 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <TabbedPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+            xmlns:converters="clr-namespace:TestDrive.Converter"
              x:Class="TestDrive.Views.MasterView"
              Title="Dados do Usuário">
+    <TabbedPage.Resources>
+        <ResourceDictionary>
+            <converters:NegativoConverter x:Key="negativo"></converters:NegativoConverter>
+        </ResourceDictionary>
+    </TabbedPage.Resources>
     <TabbedPage.Children>
         <!--Aba usuário da Tabbed Page-->
         <ContentPage Title="Usuário">
@@ -58,9 +64,11 @@
                         </TableRoot>
                     </TableView>
                     <Button Text="Salvar"
-                            Command="{Binding SalvarCommand}"></Button>
+                            Command="{Binding SalvarCommand}"
+                            IsVisible="{Binding Editando}"></Button>
                     <Button Text="Editar"
-                            Command="{Binding EditarCommand}"></Button>
+                            Command="{Binding EditarCommand}"
+                            IsVisible="{Binding Editando, Converter={StaticResource Key=negativo}}"></Button>
                 </StackLayout>
             </Frame>
         </ContentPage>
