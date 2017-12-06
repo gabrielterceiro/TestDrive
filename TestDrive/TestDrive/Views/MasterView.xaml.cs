@@ -19,5 +19,22 @@ namespace TestDrive.Views
             InitializeComponent();
             this.BindingContext = new MasterViewModel(usuario);
         }
+
+        protected override void OnAppearing()
+        {
+            base.OnAppearing();
+
+            MessagingCenter.Subscribe<Usuario>(this, "EditarPerfil",
+                (usuario) =>
+                {
+                    this.CurrentPage = this.Children[1];
+                });
+        }
+
+        protected override void OnDisappearing()
+        {
+            base.OnDisappearing();
+            MessagingCenter.Unsubscribe<Usuario>(this, "EditarPerfil");
+        }
     }
 }

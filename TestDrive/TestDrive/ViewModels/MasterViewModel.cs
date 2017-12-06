@@ -3,6 +3,8 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows.Input;
+using Xamarin.Forms;
 
 namespace TestDrive.ViewModels
 {
@@ -24,10 +26,17 @@ namespace TestDrive.ViewModels
 
         private readonly Usuario usuario;
 
+        public ICommand EditarPerfilCommand { get; private set; }
+
         #region Construtor
         public MasterViewModel(Usuario usuario)
         {
             this.usuario = usuario;
+            EditarPerfilCommand = new Command(
+                () =>
+                {
+                    MessagingCenter.Send<Usuario>(this.usuario, "EditarPerfil");
+                });
         }
         #endregion
     }

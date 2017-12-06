@@ -25,7 +25,8 @@
                              Color="Gray"
                              HorizontalOptions="Fill"></BoxView>
                     <!--Botão Perfil-->
-                    <Button Text="Perfil"></Button>
+                    <Button Text="Perfil"
+                            Command="{Binding EditarPerfilCommand}"></Button>
                 </StackLayout>
             </Frame>
         </ContentPage>
