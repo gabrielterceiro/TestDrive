@@ -18,7 +18,7 @@ namespace TestDrive
         #endregion
     }
 
-    public class LoginResult
+    public class ResultadoLogin
     {
         public Usuario usuario { get; set; }
     }
