@@ -48,6 +48,7 @@
     <Compile Include="ViewModels\DetalheViewModel.cs" />
     <Compile Include="ViewModels\ListagemViewModel.cs" />
     <Compile Include="ViewModels\LoginViewModel.cs" />
+    <Compile Include="ViewModels\MasterViewModel.cs" />
     <Compile Include="Views\AgendamentoView.xaml.cs">
       <DependentUpon>AgendamentoView.xaml</DependentUpon>
     </Compile>

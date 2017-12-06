@@ -10,7 +10,7 @@ using Xamarin.Forms;
 namespace TestDrive.Views
 {
     public partial class AgendamentoView : ContentPage
-    {
+    {   
         public AgendamentoViewModel ViewModel { get; set; }
 
         #region Construtor
