@@ -1,28 +1,36 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
-<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+<TabbedPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="TestDrive.Views.MasterView"
              Title="Dados do Usuário">
-    <!--Faz uma borda ao redor dos controles-->
-    <Frame OutlineColor="Silver"
-           VerticalOptions="CenterAndExpand"
-           Margin="15">
-        <StackLayout HorizontalOptions="Center"
-                     VerticalOptions="Center">
-            <!--Label com o nome-->
-            <Label Text="{Binding Nome}" FontSize="18"></Label>
-            <!--Separador-->
-            <BoxView HeightRequest="1"
-                     Color="Gray"
-                     HorizontalOptions="Fill"></BoxView>
-            <!--Label com o email-->
-            <Label Text="{Binding Email}" FontSize="18"></Label>
-            <!--Separador-->
-            <BoxView HeightRequest="1"
-                     Color="Gray"
-                     HorizontalOptions="Fill"></BoxView>
-            <!--Botão Perfil-->
-            <Button Text="Perfil"></Button>
-        </StackLayout>
-    </Frame>
-</ContentPage>
+    <TabbedPage.Children>
+        <!--Aba usuário da Tabbed Page-->
+        <ContentPage Title="Usuário">
+            <!--Faz uma borda ao redor dos controles-->
+            <Frame OutlineColor="Silver"
+                   VerticalOptions="CenterAndExpand"
+                   Margin="15">
+                <StackLayout HorizontalOptions="Center"
+                             VerticalOptions="Center">
+                    <!--Label com o nome-->
+                    <Label Text="{Binding Nome}" FontSize="18"></Label>
+                    <!--Separador-->
+                    <BoxView HeightRequest="1"
+                             Color="Gray"
+                             HorizontalOptions="Fill"></BoxView>
+                    <!--Label com o email-->
+                    <Label Text="{Binding Email}" FontSize="18"></Label>
+                    <!--Separador-->
+                    <BoxView HeightRequest="1"
+                             Color="Gray"
+                             HorizontalOptions="Fill"></BoxView>
+                    <!--Botão Perfil-->
+                    <Button Text="Perfil"></Button>
+                </StackLayout>
+            </Frame>
+        </ContentPage>
+        <ContentPage Title="Editar">
+
+        </ContentPage>
+    </TabbedPage.Children>
+</TabbedPage>

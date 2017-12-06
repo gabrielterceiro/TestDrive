@@ -12,16 +12,12 @@ using Xamarin.Forms.Xaml;
 
 namespace TestDrive.Views
 {
-    public partial class MasterView : ContentPage
+    public partial class MasterView : TabbedPage
     {
-        public MasterViewModel ViewModel { get; set; }
-
         public MasterView(Usuario usuario)
         {
             InitializeComponent();
-
-            this.ViewModel = new MasterViewModel(usuario);
-            this.BindingContext = ViewModel;
+            this.BindingContext = new MasterViewModel(usuario);
         }
     }
 }
