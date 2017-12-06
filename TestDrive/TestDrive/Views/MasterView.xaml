@@ -30,8 +30,39 @@
                 </StackLayout>
             </Frame>
         </ContentPage>
+        <!--Aba editar da Tabbed Page-->
         <ContentPage Title="Editar">
-
+            <Frame OutlineColor="Silver"
+                   VerticalOptions="CenterAndExpand"
+                   Margin="15">
+                <StackLayout HorizontalOptions="Center"
+                             VerticalOptions="Center">
+                    <TableView>
+                        <TableRoot>
+                            <TableSection Title="Dados Pessoais">
+                                <EntryCell Placeholder="Nome" 
+                                           Text="{Binding Nome}"
+                                           IsEnabled="{Binding Editando}"></EntryCell>
+                                <EntryCell Placeholder="Data de Nascimento" 
+                                           Text="{Binding DataNascimento}"
+                                           IsEnabled="{Binding Editando}"></EntryCell>
+                                <EntryCell Placeholder="Telefone"
+                                           Keyboard="Telephone" 
+                                           Text="{Binding Telefone}"
+                                           IsEnabled="{Binding Editando}"></EntryCell>
+                                <EntryCell Placeholder="E-mail"
+                                           Keyboard="Email" 
+                                           Text="{Binding Email}"
+                                           IsEnabled="{Binding Editando}"></EntryCell>
+                            </TableSection>
+                        </TableRoot>
+                    </TableView>
+                    <Button Text="Salvar"
+                            Command="{Binding SalvarCommand}"></Button>
+                    <Button Text="Editar"
+                            Command="{Binding EditarCommand}"></Button>
+                </StackLayout>
+            </Frame>
         </ContentPage>
     </TabbedPage.Children>
 </TabbedPage>
