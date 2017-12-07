@@ -4,6 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Input;
+using TestDrive.Media;
 using TestDrive2.ViewModels;
 using Xamarin.Forms;
 
@@ -36,10 +37,6 @@ namespace TestDrive.ViewModels
             set { this.usuario.telefone = value; }
         }
 
-        #endregion
-
-        private readonly Usuario usuario;
-
         private bool editando = false;
         public bool Editando
         {
@@ -51,6 +48,17 @@ namespace TestDrive.ViewModels
             }
         }
 
+        private ImageSource fotoPerfil = "perfil.png";
+
+        public ImageSource FotoPerfil
+        {
+            get { return fotoPerfil; }
+            private set { fotoPerfil = value; }
+        }
+
+        #endregion
+
+        private readonly Usuario usuario;
 
         #region Commands
         public ICommand EditarPerfilCommand { get; private set; }
@@ -58,6 +66,8 @@ namespace TestDrive.ViewModels
         public ICommand SalvarCommand { get; private set; }
 
         public ICommand EditarCommand { get; private set; }
+
+        public ICommand TirarFotoCommand { get; private set; }
         #endregion
 
         #region Construtor
@@ -84,6 +94,11 @@ namespace TestDrive.ViewModels
                 () => 
                 {
                     this.Editando = true;
+                });
+            TirarFotoCommand = new Command(
+                () =>
+                {
+                    DependencyService.Get<ICamera>().TirarFoto();
                 });
         }
         #endregion

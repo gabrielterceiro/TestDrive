@@ -18,6 +18,8 @@
                    Margin="15">
                 <StackLayout HorizontalOptions="Center"
                              VerticalOptions="Center">
+                    <!--Imagem de perfil-->
+                    <Image Source="{Binding FotoPerfil}"></Image>
                     <!--Label com o nome-->
                     <Label Text="{Binding Nome}" FontSize="18"></Label>
                     <!--Separador-->
@@ -43,6 +45,11 @@
                    Margin="15">
                 <StackLayout HorizontalOptions="Center"
                              VerticalOptions="Center">
+                    <!--Imagem de perfil-->
+                    <Image Source="{Binding FotoPerfil}"></Image>
+                    <!--Botão para tirar Foto-->
+                    <Button Text="Tirar Foto"
+                            Command="{Binding TirarFotoCommand}"></Button>
                     <TableView>
                         <TableRoot>
                             <TableSection Title="Dados Pessoais">
