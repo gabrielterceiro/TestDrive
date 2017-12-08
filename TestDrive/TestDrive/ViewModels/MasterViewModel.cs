@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -49,11 +50,14 @@ namespace TestDrive.ViewModels
         }
 
         private ImageSource fotoPerfil = "perfil.png";
-
         public ImageSource FotoPerfil
         {
             get { return fotoPerfil; }
-            private set { fotoPerfil = value; }
+            private set
+            {
+                fotoPerfil = value;
+                OnPropertyChanged();
+            }
         }
 
         #endregion
@@ -99,6 +103,12 @@ namespace TestDrive.ViewModels
                 () =>
                 {
                     DependencyService.Get<ICamera>().TirarFoto();
+                });
+            MessagingCenter.Subscribe<byte[]>(this, "FotoTirada", 
+                (bytes) =>
+                {
+                    FotoPerfil = ImageSource.FromStream(
+                        () => new MemoryStream(bytes));
                 });
         }
         #endregion
